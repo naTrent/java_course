@@ -59,17 +59,16 @@ public class PhoneBillCalculator {
     }
 
     public static double countTaxForAll(double plan, double overage){
-        //DecimalFormat df = new DecimalFormat("#.00");
         double totalFee = (plan + overage);
         return totalFee * tax / 100;
     }
 
     private static void generatePhoneBill(double plan, double overageCost, double tax) {
         System.out.println("Phone Bill Statement");
-        System.out.println("Plan: " + plan);
-        System.out.println("Overage: " + overageCost);
-        System.out.println("Tax: " + tax);
+        System.out.println("Plan: $" + String.format("%.2f", plan)); //nice way to format float/double - think of it as a String not as a number value - at the same time it can rounded values.
+        System.out.println("Overage: " + String.format("%.2f", overageCost));
+        System.out.println("Tax: " + String.format("%.2f", tax));
         double totalBill = plan + overageCost + tax;
-        System.out.println("Total: " + totalBill);
+        System.out.println("Total: " + String.format("%.2f", totalBill));
     }
 }
